@@ -35,7 +35,7 @@ A string passed to the toc method changes the printed message. This can be usefu
   >> t.toc('Section 1 took')
   Section 1 took 16.494467 seconds.
 
-The default message can also be passed in the constructor, for easier usage with context managers:
+The default message can also be passed in the constructor, for easier usage with context managers: ::
 
   >> with TicToc(default_msg='Section 1 took'):
   >>     ...
@@ -47,23 +47,23 @@ An optional keyword argument restarts the timer (equivalent to t.tic()) after re
 
   >> t.toc(restart=True)
   Elapsed time is 36.986837 seconds.
-  >>t.toc()
+  >> t.toc()
   Elapsed time is 2.393425 seconds.
 
 If you want to return the time elapsed to a variable rather than printing it, use the tocvalue method. ::
 
-  >>spam = t.tocvalue()
-  >>spam
+  >> spam = t.tocvalue()
+  >> spam
   20.156261717544602
 
-You can also pass in an alternative stream to print to:
+You can also pass in an alternative stream to print to: ::
 
   >> t = TicToc(stream=mystream)
 
 The TicToc class can be used within a context manager as an alternative way to time a section of code. The time taken to run the code inside the with statement will be reported on exit. ::
 
-  >>with TicToc():
-  >>    spam = [x+1 for x in range(10000)]
+  >> with TicToc():
+  >>     spam = [x+1 for x in range(10000)]
   Elapsed time is 0.002343 seconds.
 
 ------------------------------------
@@ -74,16 +74,16 @@ pytictoc uses timeit.default_timer to time code. On Python 3.3 and later, this i
 
 To see which function is being used: ::
 
-  >>import pytictoc
-  >>pytictoc.default_timer
+  >> import pytictoc
+  >> pytictoc.default_timer
   <function time.perf_counter>
 
 You can change the timer by simple assignment, or by passing a different timer function into an object's constructor. ::
 
-  >>import time
-  >>pytictoc.default_timer = time.clock
-  >>pytictoc.default_timer
+  >> import time
+  >> pytictoc.default_timer = time.clock
+  >> pytictoc.default_timer
   <function time.clock>
 
-  >>import time
-  >>pytictoc.TicToc(timer=time.clock)
+  >> import time
+  >> pytictoc.TicToc(timer=time.clock)
